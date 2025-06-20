@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="reset.css">
+
+
+    <style>
+        body {
+            background-color: rgb(89, 96, 102);
+            background-color: rgb(122, 138, 153);
+        }
+
+        .b {
+            position: absolute;
+
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            height: 450px;
+            width: 300px;
+            border-radius: 40px 40px 40px 40px;
+
+            /* opacity: 0.3; */
+        }
+
+        img {
+            object-fit: cover;
+            height: 450px;
+            width: 300px;
+        }
+
+        .bm {
+            overflow: hidden;
+
+            position: absolute;
+
+            height: calc(100% - 45px);
+            width: calc(100% - 45px);
+            border-radius: 40px 40px 40px 40px;
+        }
+
+        .bm img {
+            object-position: -100px;
+            position: absolute;
+
+            right: 0px;
+            top: 0px;
+
+        }
+
+
+        .b1 {
+            overflow: hidden;
+
+            position: absolute;
+
+
+            top: 0;
+            left: 0;
+            height: 360px;
+            width: 300px;
+
+            border-radius: 40px 40px 40px 0px;
+
+        }
+
+        .b1 img {
+            object-position: -100px;
+            position: absolute;
+
+            right: 0px;
+            top: 0px;
+
+        }
+
+
+        .b2 {
+            overflow: hidden;
+
+            position: absolute;
+
+
+            bottom: 0;
+            left: 0;
+            height: 90px;
+            width: 210px;
+
+            border-radius: 0 0 40px 40px;
+
+        }
+
+        .b2 img {
+            object-position: -100px;
+
+            position: absolute;
+
+            left: 0;
+            bottom: 0px;
+
+        }
+
+        .b3 {
+
+            position: absolute;
+            mix-blend-mode: normal;
+
+
+            background-color: rgb(255, 255, 255);
+
+            bottom: 0;
+            right: 0;
+            height: 90px;
+            width: 90px;
+
+            border-radius: 40px 0 0px 0px;
+            z-index: 1;
+        }
+
+        .kr {
+            position: absolute;
+            right: 0;
+            bottom: 0;
+
+            width: 80px;
+            height: 80px;
+            border-radius: 40px;
+            background-color: #212121;
+        }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        .container1 {
+            background: url('фон.jpg') no-repeat center/cover;
+            /* Ваш фон */
+            position: absolute;
+            top: 150px;
+            left: 650px;
+            height: 300px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            /* background-color: aqua; */
+        }
+
+        .glass-effect {
+            height: 300px;
+            width: 300px;
+
+            background: rgba(255, 255, 255, 0.25);
+            /* Полупрозрачный белый */
+            backdrop-filter: blur(20px);
+            /* Размытие фона под элементом */
+            -webkit-backdrop-filter: blur(20px);
+            /* Для Safari */
+            border-radius: 16px;
+            /* Закругленные углы */
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            /* Тонкая светлая граница */
+            box-shadow:
+                0 4px 30px rgba(0, 0, 0, 0.1),
+                inset 0 0 10px rgba(255, 255, 255, 0.2);
+        }
+
+
+        .container2 {
+            background: url('фон.jpg') no-repeat center/cover;
+            /* Ваш фон */
+            position: absolute;
+            top: 150px;
+            right: 650px;
+            height: 300px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            /* background-color: aqua; */
+        }
+
+
+        .glass-ios {
+            height: 300px;
+            width: 300px;
+
+            background: linear-gradient(to bottom right,
+                    rgba(255, 255, 255, 0.4),
+                    rgba(255, 255, 255, 0.1));
+            backdrop-filter: blur(25px) saturate(180%);
+            -webkit-backdrop-filter: blur(25px) saturate(180%);
+            border-radius: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            box-shadow:
+                0 8px 32px rgba(0, 0, 0, 0.1),
+                inset 0 0 16px rgba(255, 255, 255, 0.3);
+        }
+
+        .glass-ios:hover {
+            animation: glass-shine 3s infinite;
+        }
+
+        @keyframes glass-shine {
+            0% {
+                /* opacity: 0.9; */
+            }
+
+            50% {
+                /* opacity: 1; */
+                background-color: rgba(255, 255, 255, 0.3);
+            }
+
+            100% {
+                /* opacity: 0.9; */
+            }
+        }
+
+
+
+
+
+
+
+
+
+        .blockBack {
+            position: absolute;
+
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            height: 160px;
+            width: 340px;
+            border-radius: 40px 40px 40px 40px;
+
+
+            background-color: aliceblue;
+            /* opacity: 0.3; */
+        }
+
+        .blockUp {
+            overflow: hidden;
+            position: absolute;
+
+            top: 0;
+            left: 0;
+            height: 110px;
+            width: 340px;
+
+            border-radius: 40px 40px 20px 0px;
+
+            background-color: rgb(90, 95, 100);
+
+
+        }
+
+        .blockCenter {
+            overflow: hidden;
+            position: absolute;
+
+            height: calc(100% - 20px);
+            width: calc(100% - 20px);
+            border-radius: 40px 40px 40px 40px;
+
+            background-color: rgb(90, 95, 100);
+        }
+
+        .blockDown {
+            overflow: hidden;
+            position: absolute;
+
+            bottom: 0;
+            left: 0;
+            height: 50px;
+            width: 290px;
+
+            border-radius: 0 0 20px 40px;
+            background-color: rgb(90, 95, 100);
+        }
+
+        .blockButton {
+
+            position: absolute;
+            mix-blend-mode: normal;
+
+
+            background-color: rgb(255, 255, 255);
+
+            bottom: 0;
+            right: 0;
+            height: 50px;
+            width: 50px;
+
+            border-radius: 30px 0 0px 0px;
+            z-index: 1;
+        }
+
+        .button {
+            position: absolute;
+            right: 0;
+            bottom: 0;
+
+            width: 40px;
+            height: 40px;
+            border-radius: 40px;
+            background-color: #212121;
+        }
+
+
+
+
+
+
+
+
+        #mainBackground img {
+            position: fixed;
+            object-fit:cover;
+            margin: auto;
+
+            width: 100vw;
+            height: 100vh;
+            z-index: -100;
+        }
+
+
+        .blockk {
+            position: absolute;
+
+            top: 0;
+            left: 0;
+            /* transform: translate(-50%, -50%); */
+            height: 160px;
+            width: 340px;
+            border-radius: 40px 40px 40px 40px;
+
+
+            background-color: aliceblue;
+
+
+
+
+            background: url('style/x/ax7.jpg') -100px -100px/cover;
+
+            /* opacity: 0.3; */
+        }
+    </style>
+</head>
+
+<body>
+    <main>
+
+        <div id="mainBackground">
+            <img class='front' src="style/x/ax7.jpg" alt="">
+        </div>
+
+
+        <div class="blockk">
+        </div>
+
+
+
+
+
+        <!-- <div class="b">
+            <div class="bm">
+                <img src="style/cosmo.jpg" alt="">
+            </div>
+            <div class="b1">
+                <img src="style/cosmo.jpg" alt="">
+
+            </div>
+
+            <div class="b2">
+                <img src="style/cosmo.jpg" alt="">
+
+            </div>
+
+
+            <div class="b3">
+                <div class="kr"></div>
+            </div>
+        </div> -->
+
+
+
+
+        <!-- <div class="blockBack">
+            <div class="blockUp">
+
+            </div>
+            <div class="blockCenter">
+
+            </div>
+
+            <div class="blockDown">
+
+            </div>
+
+            <div class="blockButton">
+                <div class="button"></div>
+            </div>
+        </div> -->
+
+
+
+
+
+
+
+
+
+
+
+        <!-- <div class="container1">
+            <div class="glass-effect"></div>
+        </div>
+        <div class="container2">
+            <div class="glass-ios"></div>
+        </div> -->
+
+
+    </main>
+</body>
+
+</html>

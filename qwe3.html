@@ -1,0 +1,85 @@
+<div class="hover-area">Наведи на меня</div>
+<div class="tab-cursor">ТАБ</div>
+
+<style>
+  .hover-area {
+    width: 300px;
+    height: 200px;
+    background: #f0f0f0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* cursor: none; */
+    margin: 50px;
+  }
+  
+  .tab-cursor {
+    position: fixed;
+    pointer-events: none;
+    z-index: 9999;
+    font-weight: bold;
+    font-size: 14px;
+    color: white;
+    background: #333;
+    padding: 4px 8px;
+    border-radius: 4px;
+    transition: transform 0.3s ease-out, left 0.2s linear, top 0.2s linear;
+    transform: translate(-50%, -50%) scale(0.9);
+    opacity: 0;
+  }
+  
+  .tab-cursor.visible {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+  }
+</style>
+
+<script>
+  const hoverArea = document.querySelector('.hover-area');
+  const tabCursor = document.querySelector('.tab-cursor');
+  let mouseX = 0;
+  let mouseY = 0;
+  let cursorX = 0;
+  let cursorY = 0;
+  let isInside = false;
+  
+  // Запоминаем позицию курсора
+  hoverArea.addEventListener('mousemove', (e) => {
+    mouseX = e.clientX;
+    mouseY = e.clientY;
+    
+    if (!isInside) {
+      tabCursor.classList.add('visible');
+      isInside = true;
+    }
+  });
+  
+  hoverArea.addEventListener('mouseleave', () => {
+    tabCursor.classList.remove('visible');
+    isInside = false;
+  });
+  
+  // Анимация с запаздыванием
+  function animateCursor() {
+    // Вычисляем разницу между курсором и ярлыком
+    const dx = mouseX - cursorX;
+    const dy = mouseY - cursorY;
+    
+    // Двигаем ярлык с эффектом "резинки"
+    cursorX += dx * 0.2;
+    cursorY += dy * 0.2;
+    
+    tabCursor.style.left = cursorX + 35 + 'px';
+    tabCursor.style.top = cursorY + 35 + 'px';
+    
+    // Добавляем эффект "растяжения" при быстром движении
+    const distance = Math.sqrt(dx * dx + dy * dy);
+    const scaleY = 1 + Math.min(distance * 0.005, 0.2);
+    const scaleX = 1 - Math.min(distance * 0.002, 0.1);
+    tabCursor.style.transform = `translate(-50%, -50%) scale(${scaleX}, ${scaleY})`;
+    
+    requestAnimationFrame(animateCursor);
+  }
+  
+  animateCursor();
+</script>
